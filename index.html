@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estructura de Datos | ESPOCH App Híbrida</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ICONOS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- ==== ESTILOS ==== -->
+    <style>
+        :root {
+            --rojo: #190d0d;
+            --rojo-oscuro: #550000;
+            --fondo: #f4f4f4;
+            --texto: #222;
+            --card: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --fondo: #0f0f0f;
+            --texto: #e9e9e9;
+            --card: #1c1c1c;
+        }
+
+        body {
+            margin: 0;
+            background: var(--fondo);
+            color: var(--texto);
+            font-family: "Segoe UI", Arial;
+            transition: 0.3s;
+        }
+
+        /* ENCABEZADO */
+        header {
+            background: linear-gradient(120deg, #cc5353, #d01313);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+            border-bottom: 4px solid #f0eaea;
+        }
+
+        /* SIDEBAR */
+        #sidebar {
+            position: fixed;
+            width: 260px;
+            height: 100%;
+            background: #cbbbbb;
+            top: 0;
+            left: -260px;
+            transition: 0.4s;
+            padding-top: 60px;
+            color: white;
+            z-index: 1001;
+        }
+
+        #sidebar a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            transition: 0.3s;
+        }
+
+        #sidebar a:hover {
+            background: #550000;
+        }
+
+        /* BOTÓN PARA ABRIR SIDEBAR */
+        #menuBtn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #8A0000;
+            border: none;
+            padding: 12px 14px;
+            border-radius: 8px;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 1200;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        /* CONTENEDOR */
+        .contenedor {
+            width: 92%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 25px 0;
+        }
+
+        /* CARDS */
+        .card {
+            background: var(--card);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+            animation: fade 0.8s ease;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        h2 {
+            color: #8A0000;
+        }
+
+        /* BOTÓN DARK MODE */
+        #themeToggle {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background: #8A0000;
+            padding: 14px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1200;
+        }
+
+        #themeToggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* BOTÓN SUBIR ARRIBA */
+        #topBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 80px;
+            background: #e9dede;
+            padding: 14px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            display: none;
+            transition: 0.3s;
+            z-index: 1200;
+        }
+
+        #topBtn:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes fade {
+            from {opacity: 0; transform: translateY(30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- BOTÓN MENU -->
+<button id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+
+<!-- MENU LATERAL -->
+<div id="sidebar">
+    <a href="#u1">📘 Unidad 1</a>
+    <a href="#u2">📗 Unidad 2</a>
+    <a href="#u3">📙 Unidad 3</a>
+    <a href="#u4">📒 Unidad 4</a>
+</div>
+
+<header>
+    <h1>ESCUELA SUPERIOR POLITÉCNICA DE CHIMBORAZO</h1>
+    <h2>Sede Orellana – Facultad de Informática y Electrónica</h2>
+    <h3>Asignatura: Estructura de Datos</h3>
+</header>
+
+<div class="contenedor">
+
+    <!-- UNIDAD 1 -->
+    <section id="u1" class="card">
+        <h2>📘 Unidad 1: Fundamentos e Introducción</h2>
+        <p><b>Concepto general:</b> Esta unidad presenta los principios esenciales para comprender
+            qué son las estructuras de datos, su historia, importancia y evolución dentro de la informática.</p>
+
+        <img src="https://i.imgur.com/Lm3HkCI.png" alt="Tipos de datos">
+    </section>
+
+    <!-- UNIDAD 2 -->
+    <section id="u2" class="card">
+        <h2>📗 Unidad 2: Estructuras Lineales</h2>
+
+        <h3>📌 Pilas (Stack) — Concepto</h3>
+        <p>Una pila es una estructura LIFO donde el último elemento en ingresar es el primero en salir.  
+        Aplicaciones: navegación web, recursividad, deshacer acciones.</p>
+
+        <a href="https://github.com/CristhiAn-555/PracticaUno2025.git" target="_blank" 
+            style="display:inline-flex; align-items:center; gap:8px; padding:10px 15px; 
+            background:#900000; color:white; border-radius:10px; text-decoration:none; margin-top:10px; font-weight:bold;">
+            <i class="fa-solid fa-code-branch"></i> Ver implementación de Pilas en GitHub
+        </a>
+
+
+        <a href="https://lucid.app/lucidchart/e5e1b6c3-9487-4c50-9fdc-3a1e001bc892/edit?viewport_loc=-1893%2C-570%2C1706%2C722%2C0_0&invitationId=inv_eaebaac9-c9cd-4d19-beee-0e2f8849f45b" 
+           target="_blank"
+           style="display:inline-flex; align-items:center; gap:8px; padding:10px 15px; 
+           background:#550000; color:white; border-radius:10px; text-decoration:none; margin-top:10px; font-weight:bold;">
+            <i class="fa-solid fa-diagram-project"></i> Ver diagrama de Pilas (Lucidchart)
+        </a>
+
+        <h3>📌 Colas (Queue) — Concepto</h3>
+        <p>Una cola es una estructura FIFO donde el primero en entrar es el primero en salir.  
+        Aplicaciones: impresoras, procesos del sistema, atención en turnos.</p>
+
+        <!-- 👇 TU LINK DE GITHUB -->
+        <a href="https://github.com/Marjorie06/Librer-aMarjorieChimbo.git" target="_blank" 
+            style="display:inline-flex; align-items:center; gap:8px; padding:10px 15px; 
+            background:#900000; color:white; border-radius:10px; text-decoration:none; margin-top:10px; font-weight:bold;">
+            <i class="fa-solid fa-code-branch"></i> Ver implementación de Cola en GitHub
+        </a>
+
+        <!-- 👇 TU LINK DE LUCIDCHART MÁS ABAJITO -->
+        <br><br>
+        <a href="https://lucid.app/lucidchart/cedc4358-30fe-4bd6-aa53-99c1163385a7/edit?viewport_loc=-1810%2C-472%2C1304%2C586%2C0_0&invitationId=inv_4fc2d80f-dbf1-4f16-b339-0ac88e65074a" 
+           target="_blank"
+           style="display:inline-flex; align-items:center; gap:8px; padding:10px 15px; 
+           background:#550000; color:white; border-radius:10px; text-decoration:none; margin-top:10px; font-weight:bold;">
+            <i class="fa-solid fa-diagram-project"></i> Ver diagrama de Cola (Lucidchart)
+        </a>
+
+        <h3>📌 Listas Enlazadas — Concepto</h3>
+        <p>Una lista enlazada es una estructura dinámica formada por nodos conectados uno tras otro.  
+        Tipos: simples, dobles y circulares.</p>
+
+        <img src="https://i.imgur.com/QXvVnnl.png" alt="Pila y Cola">
+    </section>
+
+    <!-- UNIDAD 3 -->
+    <section id="u3" class="card">
+        <h2>📙 Unidad 3: Estructuras No Lineales</h2>
+
+        <h3>📌 Árboles — Concepto</h3>
+        <p>Un árbol es una estructura jerárquica compuesta por nodos: raíz, hijos y hojas.  
+        Usos: sistemas de archivos, IA, bases de datos.</p>
+
+        <h3>📌 Grafos — Concepto</h3>
+        <p>Un grafo es un conjunto de nodos conectados mediante aristas.  
+        Usos: redes sociales, mapas, transporte.</p>
+
+        <img src="https://i.imgur.com/NEUXOcQ.png" alt="Árbol y Grafo">
+    </section>
+
+    <!-- UNIDAD 4 -->
+    <section id="u4" class="card">
+        <h2>📒 Unidad 4: Búsqueda y Ordenamiento</h2>
+
+        <h3>📌 Búsqueda — Concepto</h3>
+        <p>
+            La búsqueda consiste en localizar un elemento dentro de un conjunto de datos.  
+            Tipos principales: búsqueda lineal, binaria y basada en tablas hash.
+        </p>
+
+        <h3>📌 Ordenamiento — Concepto</h3>
+        <p>
+            El ordenamiento organiza los datos siguiendo un criterio definido.  
+            Métodos comunes: Burbuja, QuickSort y MergeSort.
+        </p>
+
+        <img src="https://i.imgur.com/KZgS6Or.png" alt="Algoritmos de ordenamiento">
+    </section>
+
+</div>
+
+<footer style="background:#8A0000; color:white; text-align:center; padding:20px;">
+    Página desarrollada por Cristhian Valencia· Marjorie Chimbo· Willian Caisaguano
+</footer>
+
+<!-- BOTÓN MODO OSCURO -->
+<button id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+
+<!-- BOTÓN SUBIR -->
+<button id="topBtn"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- ==== SCRIPT ==== -->
+<script>
+    // SIDEBAR
+    const menuBtn = document.getElementById("menuBtn");
+    const sidebar = document.getElementById("sidebar");
+    let abierto = false;
+
+    menuBtn.onclick = () => {
+        sidebar.style.left = abierto ? "-260px" : "0";
+        abierto = !abierto;
+    };
+
+    // MODO OSCURO
+    const btnDark = document.getElementById("themeToggle");
+    btnDark.onclick = () => {
+        document.body.dataset.theme =
+            document.body.dataset.theme === "dark" ? "light" : "dark";
+
+        btnDark.innerHTML =
+            document.body.dataset.theme === "dark"
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+    };
+
+    // BOTÓN SUBIR
+    const topBtn = document.getElementById("topBtn");
+    window.addEventListener("scroll", () => {
+        topBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+    topBtn.onclick = () =>
+        window.scrollTo({top: 0, behavior: "smooth"});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
